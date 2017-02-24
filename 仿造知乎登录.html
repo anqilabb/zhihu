@@ -1,0 +1,270 @@
+<!doctype html5>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<link rel="shortcut icon" href="./bitbug_favicon.ico"/> 
+		<title>知乎-与世界分享你的知识、经验和见解</title>
+		<style>
+			body {
+				background:rgb(246,250,253);
+			}
+			.all {
+				margin:auto;
+				width:300px;
+				text-align:center;
+			}
+			.note {
+				font-size:18px;
+				line-height:3.8em;
+			}
+			article .SL {
+				font-size:20px;
+				color:rgb(134,134,135);
+			}
+			article .SL .signUp {
+				cursor:pointer;
+			}
+			article .SL .login {
+				margin-left:30px;
+				cursor:pointer;
+			}
+			article .focus {
+				color:rgb(24,129,220);
+			}
+			article .borderButton {
+				width:46px;
+				height:2px;
+				background:rgb(24,129,220);
+				margin-left:87px;
+				margin-top:3px;
+				transition:0.3s;
+				margin-bottom:17px;
+			}
+			article .borderButtonF {
+				margin-left:167px;
+			}
+			article input {
+				position:relative;
+				width:300px;
+				line-height:50px;
+				padding-left:10px;
+				border:1px solid rgb(208,211,205);
+				opacity:0.7;
+			}
+			article input:focus {
+				border:1px solid rgb(208,211,205);
+				z-index:1;		
+			}
+			::-webkit-input-placeholder { /* google sougou*/
+				opacity:0.8;
+				font-size:15px;
+			}
+			:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+				opacity:0.3;
+				font-size:15px;
+			}
+			::-moz-placeholder { /* Mozilla Firefox 19+ */
+				opacity:0.2;
+				font-size:15px;
+			}
+			:-ms-input-placeholder { /* Internet Explorer 10-11 */
+				opacity:0.3;
+				font-size:15px;
+			}
+			article .name {
+				border-radius:5px 5px 0px 0px;
+			}
+			article .number {
+				margin-top:-1px;
+			}
+			article .pw {
+				margin-top:-1px;
+				border-radius:0px 0px 5px 5px;
+			}
+			article .submit, article .login2 {
+				margin-top:16px;
+				line-height:40px;
+				border-radius:5px 5px 5px 5px;
+				background:rgb(0,80,246);
+				color:white;
+				font-size:15px;
+				cursor:pointer;
+			}
+			article .submit:hover, article .login2:hover {
+				opacity:0.5;
+			}
+			article .xieYi, article .loginC {
+				font-size:13px;
+				opacity:0.5;
+			}
+			article .xieYi a, article .loginC a {
+				text-decoration:none;
+			}
+			article .loginC {
+				line-height:40px;
+			}
+			article .loginP {
+				margin-top:10px;
+				float:left;
+			}
+			article .loginN {
+				margin-top:10px;
+				color:black;
+				float:right;
+			}
+			article .loginF {
+				color:black;
+				clear:both;
+				float:left;
+				display:block;
+			}
+			article .download {
+				width:300px;
+				line-height:35px;
+				background:white;
+				border-radius:5px;
+				border:1px solid rgb(150,194,223);
+				color:rgb(150,194,223);
+				margin-top:50px;
+				background:rgba(0,0,0,0);
+				cursor:pointer;
+			}
+			article .twoD {
+				opacity:0;
+				transition:0.3s;
+				position:absolute;
+				top:160px;
+				margin-left:-302px;
+				border-radius:5px;
+				box-shadow:1px 1px 7px rgb(200,200,200);
+			}
+			article .twoDN {
+				display:none;
+			}
+			article .twoDS {
+				opacity:1 ;
+			}
+			article .twoDB {
+				display:inline;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='all'>
+			<header>
+				<div class='title'><img src='./知乎.jpg' /></div>
+				<div class='note'>与世界分享你的知识、经验和见解</div>
+			</header>
+			<article>
+				<div class='SL'>
+					<span class='signUp'>注册</span>
+					<span class='login'>登录</span>
+				</div>
+				<div class='borderButton'></div>
+				<div class='form1'>
+					<form>
+						<input class='name' placeholder='姓名' />
+						<input class='number' placeholder='手机号（仅支持中国大陆）' />
+						<input class='pw' placeholder='密码（不少于六位）' />
+						<input class='submit' type='submit' value='注册知乎' />
+					</form>
+					<div class='xieYi'>点击「注册」按钮，即代表你同意<a href='#'>《知乎协议》</a></div>
+				</div>
+				<div class='form2'>
+					<form>
+						<input class='name' placeholder='手机号或邮箱' />
+						<input class='number' placeholder='密码' />
+						<input class='login2' type='submit' value='登录' />
+						<div class='loginC'>
+							<a class='loginP' href='#'>手机验证码登录</a>
+							<a class='loginN' href='#'>无法登录</a>
+							<a class='loginF' href='#'>社交账号登录</a>
+						</div>
+					</form>
+				</div>
+				<button class='download'>下载知乎app</button>
+				<img class='twoD twoDN' src='./二维码.jpg' />
+				<div class='hyperlink'></div>
+			</article>
+		</div>
+		<script>
+			var signUp=document.querySelector('.signUp')
+			var login=document.querySelector('.login')
+			var borderButton=document.querySelector('.borderButton')
+			var download=document.querySelector('.download')
+			var n=1
+			var twoD=document.querySelector('.twoD')
+			var form1=document.querySelector('.form1')
+			var form2=document.querySelector('.form2')
+			
+			form2.style.display='none'
+			signUp.className=signUp.className+' focus'
+			
+			signUp.addEventListener('click',function() {
+				login.className='login'
+				signUp.className=signUp.className+' focus'
+				borderButton.className='borderButton'
+				form2.style.display='none'
+				form1.style.display='block'
+				document.querySelector('.download').style.marginTop='50px'
+			}) 
+			
+			login.addEventListener('click',function() {
+				signUp.className='signUp'
+				login.className=login.className+' focus'
+				borderButton.className=borderButton.className+' borderButtonF'
+				form1.style.display='none'
+				form2.style.display='block'
+				document.querySelector('.download').style.marginTop='10px'
+			}) 
+			
+			download.addEventListener('click',function(e) {
+				if(n==1){
+					download.innerHTML='关闭二维码'
+					twoD.className=twoD.className+' twoDB'
+					setTimeout(function() {
+						twoD.className=twoD.className+' twoDS'
+					},100)	
+					n=2
+				}
+				else{
+					download.innerHTML='下载知乎app'
+					twoD.className='twoD'
+					setTimeout(function() {
+						twoD.className='twoDN twoD'
+					},300)
+					n=1
+				}
+			})
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
